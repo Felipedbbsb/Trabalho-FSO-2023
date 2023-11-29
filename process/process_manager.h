@@ -1,5 +1,6 @@
 #pragma once
 #include <queue>
+#include "../file/FileManager.h"
 
 struct ProcessManager {
   
@@ -7,7 +8,7 @@ struct ProcessManager {
     processos_bloqueados;
   std::queue<Process> fila_processos;
   MemoryManager gerenciador_memoria;
-  //FileManager gerenciador_arquivo;
+  FileManager gerenciador_arquivo;
   Process processador_atual;
   // real time thread ?
   // user thread ? 

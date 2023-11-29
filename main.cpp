@@ -1,4 +1,3 @@
-#include <iostream>
 #include <fstream>
 #include <vector>
 #include "IOManager.cpp"
@@ -26,16 +25,23 @@ std::vector<std::string> read_lines(const std::string& path)
 
 int main(int argc, char* argv[])
 {
-	// abrir as instancias dos gerenciadores
-	// fazer tipo um kernel ?
+	// TODO: abrir as instancias dos gerenciadores
+	// TODO: fazer tipo um kernel ?
 	if (argc != 3)
 	{
 		// Incluir mensagem de erro
 		abort();
 	}
+	// Caminho dos arquivos de entrada
 	std::string processes_path = argv[1];
 	std::string files_path = argv[2];
 
+	// Linhas dos caminhos de entrada
 	std::vector<std::string> processes = read_lines(processes_path);
 	std::vector<std::string> files = read_lines(files_path);
+
+	FileManager fileManager;
+
+	// TODO: erro ao executar esse arquivo quando deveria funcionar
+	//	fileManager.PopulateDisk(files);
 }

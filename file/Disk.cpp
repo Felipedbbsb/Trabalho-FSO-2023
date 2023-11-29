@@ -1,14 +1,28 @@
 #include "Disk.h"
-#include <algorithm>
 
-unsigned int Disk::GetBlockAmount() const
+unsigned int Disk::GetBlockAmount()
 {
 	return block_amount;
 }
 
-unsigned int Disk::GetOccupiedSegments() const
+unsigned int Disk::GetOccupiedSegments()
 {
 	return occupied_segments;
+}
+
+File* Disk::GetFile(char n)
+{
+	File* file;
+
+	for (auto f : files)
+	{
+		if (f->GetName() == n)
+		{
+			file = f;
+			break;
+		}
+	}
+	return file;
 }
 
 void Disk::SetBlockAmount(unsigned int n)
@@ -21,31 +35,25 @@ void Disk::SetOccupiedSegments(unsigned int n)
 	occupied_segments = n;
 }
 
-void Disk::AddFile(File f)
+void Disk::SetFile(char n, File f)
 {
-	File file = f;
-	file.SetFirstBlock(occupied_segments);
-
-	files.push_back(file);
-	occupied_segments += file.GetBlockCount();
-}
-
-void Disk::RemoveFile(char n)
-{
-	// TODO
-}
-
-File Disk::GetFile(char n)
-{
-	File file;
-
-	for (auto f : files)
+	for (auto file : files)
 	{
-		if (f.GetName() == n)
+		if (file->GetName() == n)
 		{
-			file = f;
+			*file = f;
 			break;
 		}
 	}
-	return file;
+}
+
+void Disk::AddFile(File* f)
+{
+	files.push_back(f);
+	occupied_segments += f->GetBlockCount();
+}
+
+void Disk::RemoveFile(File* f)
+{
+	occupied_segments -= f->GetBlockCount();
 }

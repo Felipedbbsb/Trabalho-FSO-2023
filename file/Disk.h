@@ -10,17 +10,18 @@
 class Disk
 {
  public:
-	unsigned int GetBlockAmount() const;
-	unsigned int GetOccupiedSegments() const;
+	unsigned int GetBlockAmount();
+	unsigned int GetOccupiedSegments();
+	File* GetFile(char n);
 
 	void SetBlockAmount(unsigned int n);
 	void SetOccupiedSegments(unsigned int n);
+	void SetFile(char n, File f);
 
-	void AddFile(File f);
-	void RemoveFile(char n);
-	File GetFile(char n);
+	void AddFile(File* f);
+	void RemoveFile(File* f);
  private:
-	std::vector<File> files;
+	std::vector<File*> files;
 	unsigned int block_amount;
 	unsigned int occupied_segments;
 };
