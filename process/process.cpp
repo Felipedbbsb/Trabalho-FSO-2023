@@ -1,10 +1,6 @@
-/*
-   criando a classe para representar um processo
-*/
+#include "../need.h"
 
-#include <chrono>
-
-class Process {
+struct Process {
 
   int pid;
   int tempo_criacao;

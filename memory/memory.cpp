@@ -1,7 +1,6 @@
-#include <vector>
-#include "../process/process.cpp"
+#include "../need.h"
 
-class Memory {
+struct Memory {
 
   // representando a memoria
   std::vector<bool> memoria;
@@ -20,7 +19,7 @@ class Memory {
     }
    for(int idx = inicio; idx + p.tamanho_bloco_memoria < limite; idx++) {
       bool can = true;
-      for(int tenta = idx; can && tenta < idx+tamanho_bloco_memoria; tenta++) {
+      for(int tenta = idx; can && tenta < idx+p.tamanho_bloco_memoria; tenta++) {
         if(memoria[tenta]) can = false;
       }
 

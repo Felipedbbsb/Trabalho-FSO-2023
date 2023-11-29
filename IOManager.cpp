@@ -82,25 +82,25 @@ void* processFunction(void* arg) {
 
 
 
-int main(int argc, char **argv) {
-    const int numProcesses = 3; // Número de processos/threads
+// int main(int argc, char **argv) {
+//     const int numProcesses = 3; // Número de processos/threads
 
-    IOManager ioManager; // Instância da estrutura IOManager
+//     IOManager ioManager; // Instância da estrutura IOManager
 
-    pthread_t threads[numProcesses]; // Vetor para armazenar IDs das threads
+//     pthread_t threads[numProcesses]; // Vetor para armazenar IDs das threads
 
-    // Criação das threads/processos
-    for (int i = 0; i < numProcesses; ++i) {
-        pthread_create(&threads[i], NULL, processFunction, &ioManager);
-    }
+//     // Criação das threads/processos
+//     for (int i = 0; i < numProcesses; ++i) {
+//         pthread_create(&threads[i], NULL, processFunction, &ioManager);
+//     }
 
-    // Aguarda o término de todas as threads
-    for (int i = 0; i < numProcesses; ++i) {
-        pthread_join(threads[i], NULL);
-    }
+//     // Aguarda o término de todas as threads
+//     for (int i = 0; i < numProcesses; ++i) {
+//         pthread_join(threads[i], NULL);
+//     }
 
-    // Destrói o semáforo
-    sem_destroy(&ioManager.ioSemaphore);
+//     // Destrói o semáforo
+//     sem_destroy(&ioManager.ioSemaphore);
 
-    return 0;
-}
+//     return 0;
+// }

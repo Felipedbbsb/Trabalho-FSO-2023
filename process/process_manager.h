@@ -1,13 +1,15 @@
-#include "../need.h"
+#pragma once
+#include <queue>
 
-class ProcessManager {
+struct ProcessManager {
   
   std::vector<Process> processos_tabela, processos_terminados,
     processos_bloqueados;
   std::queue<Process> fila_processos;
   MemoryManager gerenciador_memoria;
-  // FileManager gerenciador_arquivo;
+  //FileManager gerenciador_arquivo;
   Process processador_atual;
-  
-  
+  // real time thread ?
+  // user thread ? 
+
 };

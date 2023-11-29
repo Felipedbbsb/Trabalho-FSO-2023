@@ -1,6 +1,6 @@
-#include "memory.cpp"
+#include "../need.h"
 
-class MemoryManager {
+struct MemoryManager {
 
   Memory memoria; // 1MB = tamanho do bloco;
 
